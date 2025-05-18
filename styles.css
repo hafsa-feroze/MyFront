@@ -302,4 +302,159 @@ body {
     .box {
         max-width: 100%;
     }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .main-title {
+        font-size: 4.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .boxes-container {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-title {
+        font-size: 3.5rem;
+    }
+    
+    .boxes-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .box {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .card-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .box {
+        padding: 1.5rem;
+    }
+    
+    .upload-icon {
+        font-size: 2.5rem;
+    }
+    
+    .btn-primary {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-title {
+        font-size: 2.2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .card {
+        margin: 0 1rem;
+    }
+    
+    .card-header {
+        padding: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .box {
+        padding: 1rem;
+        min-height: auto;
+    }
+    
+    .upload-text {
+        font-size: 1rem;
+    }
+    
+    .upload-subtext {
+        font-size: 0.8rem;
+    }
+    
+    .result-text {
+        font-size: 1.2rem;
+    }
+}
+
+/* Container padding adjustments */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+/* Image preview responsiveness */
+#image-preview {
+    max-height: 500px;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    #image-preview {
+        max-height: 300px;
+    }
+}
+
+/* Prediction box responsiveness */
+.prediction-box {
+    margin-top: 1rem;
+}
+
+@media (max-width: 576px) {
+    .prediction-box {
+        padding: 1rem;
+    }
+}
+
+/* Alert responsiveness */
+.alert {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+    .alert {
+        margin: 0.8rem 0;
+        font-size: 0.8rem;
+    }
 } 

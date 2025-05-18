@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const emptyState = resultsBox.querySelector('.empty-state');
     const fileNameDisplay = document.querySelector('.selected-file-name');
 
-    // Backend API URL - we'll update this after deploying the backend
-    const API_URL = 'https://fire-detection-backend.herokuapp.com/predict';
+    // Backend API URL - Updated to Railway deployment
+    const API_URL = 'https://myback-production.up.railway.app/predict';
 
     // Handle file selection
     fileInput.addEventListener('change', function(e) {

@@ -1,0 +1,305 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), 
+                url('https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}
+
+.main-title {
+    font-family: 'Russo One', sans-serif;
+    font-size: 5.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #ff6b00;
+    text-shadow: 
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000,
+        0 0 15px rgba(255, 107, 0, 0.3);
+    animation: glow 2.5s ease-in-out infinite alternate;
+    letter-spacing: 3px;
+}
+
+.main-title::before {
+    content: 'FlameSense';
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: none;
+    -webkit-text-stroke: 3px #000;
+    -webkit-background-clip: initial;
+    color: transparent;
+}
+
+@keyframes glow {
+    from {
+        color: #ff6b00;
+        text-shadow: 
+            -2px -2px 0 #000,
+            2px -2px 0 #000,
+            -2px 2px 0 #000,
+            2px 2px 0 #000,
+            0 0 15px rgba(255, 107, 0, 0.2);
+    }
+    to {
+        color: #ff7b24;
+        text-shadow: 
+            -2px -2px 0 #000,
+            2px -2px 0 #000,
+            -2px 2px 0 #000,
+            2px 2px 0 #000,
+            0 0 20px rgba(255, 107, 0, 0.4),
+            0 0 35px rgba(255, 107, 0, 0.2);
+    }
+}
+
+.subtitle {
+    font-family: 'Russo One', sans-serif;
+    color: #ffa366;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    text-shadow: 
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.card {
+    background-color: rgba(45, 45, 45, 0.9);
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(45deg, #1a1a1a, #0d0d0d);
+    border: none;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff6b00, transparent);
+}
+
+.card-header h3 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.5rem;
+    margin: 0;
+    background: linear-gradient(to right, #ff6b00, #ffa366);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.boxes-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+}
+
+.box {
+    background: rgba(30, 30, 30, 0.6);
+    border: 2px dashed rgba(255, 107, 0, 0.3);
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-box {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-box:hover {
+    border-color: #ff6b00;
+    background: rgba(35, 35, 35, 0.8);
+    transform: translateY(-2px);
+}
+
+.results-box {
+    border-style: solid;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.results-box.empty {
+    color: #666;
+    font-style: italic;
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: #ff6b00;
+    margin-bottom: 1.5rem;
+}
+
+.upload-text {
+    color: #ffa366;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.upload-subtext {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.form-control {
+    display: none;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #ff6b00, #ff8533);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: 0.5s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 0, 0.4);
+    background: linear-gradient(45deg, #ff8533, #ff6b00);
+}
+
+.btn-primary:hover::before {
+    transform: translateX(100%);
+}
+
+.loading {
+    display: none;
+}
+
+.spinner-border {
+    margin-right: 8px;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.result-text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+#image-preview {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    display: none;
+}
+
+.prediction-box {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    display: none;
+}
+
+.fire {
+    background: rgba(255, 107, 0, 0.1);
+    border: 1px solid rgba(255, 107, 0, 0.3);
+    color: #ff6b00;
+}
+
+.no-fire {
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    color: #4CAF50;
+}
+
+.selected-file-name {
+    color: #ffa366;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.alert-danger {
+    background: rgba(220, 53, 69, 0.1);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    color: #ff6b6b;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+}
+
+.container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#upload-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .boxes-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .box {
+        max-width: 100%;
+    }
+} 

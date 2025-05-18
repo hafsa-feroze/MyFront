@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Backend API URL - Updated to Railway deployment
     const API_URL = 'https://myback-production.up.railway.app/predict';
 
+    let selectedImage = null;
+
     // Handle file selection
     fileInput.addEventListener('change', function(e) {
         const file = e.target.files[0];
@@ -20,17 +22,15 @@ document.addEventListener('DOMContentLoaded', function() {
             fileNameDisplay.textContent = `Selected: ${file.name}`;
             fileNameDisplay.style.display = 'block';
             
-            // Preview the image
+            // Store the image data but don't show it yet
             const reader = new FileReader();
             reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-                emptyState.style.display = 'none';
-                resultsBox.classList.remove('empty');
+                selectedImage = e.target.result;
             }
             reader.readAsDataURL(file);
         } else {
             fileNameDisplay.style.display = 'none';
+            selectedImage = null;
         }
     });
 
@@ -44,11 +44,16 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Hide previous results and error
+        preview.style.display = 'none';
+        predictionBox.style.display = 'none';
+        errorMessage.style.display = 'none';
+        emptyState.style.display = 'none';
+        resultsBox.classList.remove('empty');
+
         // Show loading state
         loadingSpan.style.display = 'inline-block';
         normalText.style.display = 'none';
-        predictionBox.style.display = 'none';
-        errorMessage.style.display = 'none';
 
         try {
             // Create form data
@@ -67,6 +72,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const data = await response.json();
             
+            // Show image and prediction together after successful prediction
+            if (selectedImage) {
+                preview.src = selectedImage;
+                preview.style.display = 'block';
+            }
+            
             // Display result
             predictionBox.className = 'prediction-box ' + (data.prediction === 'Fire' ? 'fire' : 'no-fire');
             document.querySelector('.result-text').textContent = `Prediction: ${data.prediction}`;
@@ -76,6 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
             errorMessage.textContent = 'An error occurred while processing your request. Please try again.';
             errorMessage.style.display = 'block';
+            emptyState.style.display = 'block';
+            resultsBox.classList.add('empty');
         } finally {
             // Hide loading state
             loadingSpan.style.display = 'none';

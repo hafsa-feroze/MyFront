@@ -14,7 +14,7 @@ A web application that uses machine learning to detect the presence of fire in i
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/hafsa-feroze/MyFront>
 cd fire-detection-frontend
 ```
 
